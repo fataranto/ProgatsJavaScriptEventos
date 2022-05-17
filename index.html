@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="desktop.css" media="(min-width:992px)">
+
+    <link rel="stylesheet" href="print.css" media="print">
+</head>
+
+
+<body>
+
+    <header class="header">
+        <!-- Queremos saber cuando los usuarios hacen click en el logo de progats. Muestrame por consola un mensaje que cada vez que hagan click diga ' han hecho click en logo' -->
+        <h1 class="header--title" onclick="logoClicado('titulo')">Progats</h1>
+        <img class="header--logo" src="./img/logo.webp" alt="logo progats" onclick="logoClicado('imagen')">
+        <nav class=" menu">
+            <a class="menu--item" href="">Equipo</a>
+            <a class="menu--item" href="">Servicios</a>
+            <a class="menu--item" href="contact/">Contacto</a>
+        </nav>
+    </header>
+    <section class="hero">
+        <p>¡Un hogar para cada gatito!</p>
+    </section>
+    <h2 class="members--title">Equipo</h2>
+    <section class="members">
+        <article ondblclick="mostrarDatosContacto('patricia')" class="members--card card__patricia card__role">
+            <h3 class="members--name">Patricia</h3>
+            <p class="members--role">Fundadora</p>
+        </article>
+        <article class="members--card card__patricia card__contact hide">
+            <h3>&#9743; <a href="tel:666111222">66611222</a></h3>
+        </article>
+        <article class="members--card card__veronica card__role">
+            <h3 class="members--name">Verónica</h3>
+            <p class="members--role">Voluntaria</p>
+        </article>
+        <article class="members--card card__veronica card__contact hide">
+            <h3>&#9743; <a href="tel:666111222">666333444</a></h3>
+
+        </article>
+        <article class="members--card card__edurne card__role">
+            <h3 class="members--name">Edurne</h3>
+            <p class="members--role">Voluntaria</p>
+        </article>
+        <article class="members--card card__edurne card__contact hide">
+            <h3>&#9743; <a href="tel:666111222">666555666</a></h3>
+        </article>
+    </section>
+    <footer class="footer">
+        <p class="footer--description">PROGAT es una asociación sín ánimo de lucro. Apóyanos con <strong>
+                <a class="footer--link" href="https://www.progatslagarriga.com">una
+                    donación</a>
+            </strong>. ¡Muchas
+            gracias!</p>
+
+        <p id="mensaje-adopcion">Actualmente hay <span id="num-gatos">6</span> gato/s por adoptar!</p>
+        <!-- implementar un control para añadir u ocultar el número de gatitos -->
+
+        <!-- Estos botones realmente solo deberían verse para la gente que trabaja en la asociación -->
+        <button onclick="nuevoGatito()">Nuevo gatito en la asociación</button>
+
+        <!-- Ejercicio 1: Implementa el botón de que un gato ha sido dado en adopción. BONUS: No debería ser posible que cuando queden 0 gatitos, se pueda hacer click en el botón. Podeis hacerlo desaparecer, deshabilitarlo, etc. -->
+        <!-- Ejercicio 2: Implementa la funcionalidad dblclick para  TODAS las tarjetas de las chicas. BONUS: Podrías llegar a hacerlo sin utilizar condicionales en la función mostrarDatosContacto -->
+        <!-- Ejercicio BONUS: Queremos que cuando el usuario pase el ratón por encima del logo del gato (superior izquierda), se peude ver en la versión 'tablet'; el gato maulle. Par que maulle el gato, tenéis que reproducir con JavaScript el sonido ubicado en la carepta audio/meowing-cat-sound.mp3 -->
+        <button>Un gatito ha sido adoptado</button>
+    </footer>
+
+    <!-- Progts nos ha pedido un control para poder añadir gatitos a adoptar o poder informar de que uno de ellos ya ha sido adoptado-->
+
+
+    <div id="swipeUp">
+        <a href="#top"><img src="./img/paw.png" alt="swipe up arrow"></a>
+    </div>
+
+    <script>
+
+        // Estado de la aplicación
+        let gatosAdopcion = 6;
+
+        function logoClicado(tipoLogo) {
+            console.log("Has hecho click en el logo " + tipoLogo);
+        }
+
+        function nuevoGatito() {
+            // deberíamos aumentar en 1 el parámetro
+            gatosAdopcion++;
+            // actualizar el <span> donde está el número de gatos a adoptar
+            document.querySelector("#num-gatos").textContent = gatosAdopcion;
+        }
+
+        // trabajadora  = 'patricia'
+        function mostrarDatosContacto(trabajadora) {
+            console.log("Quiero mostrar los datos de contacto para la " + trabajadora);
+
+            if (trabajadora == 'patricia') {
+                // Ocultar el 'article' de patricia, estilo en línea
+                document.querySelector(".card__patricia.card__role").style.display = "none";
+                // mostrar el 'article' con los datos de contacto de patricia, quitándole la clase CSS 'hide'
+                document.querySelector(".card__patricia.card__contact").classList.remove("hide");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

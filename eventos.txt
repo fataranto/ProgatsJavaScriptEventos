@@ -1,0 +1,5 @@
+1. Evento click. Ejemplo sencillo. Cuando hacemos click en el logo, cambiar su color.
+2. Implementar control para añadir o eliminar gatitos, con dos botones. Implementar solo el botón de añadir gatitos. 
+3. Donaciones. Un usuario puede escoger 5, 10, 20 euros de donación. Mostrar por consola la donación escogida. Para hacer: sumar el total de donaciones y mostrarlo por consola
+4. Contacto. Dejar implementar alumnos. Al hacer DOBLE CLICK en una tarjeta, quiero mostrar el teléfono y ocultar la tarjeta de la trabajadora
+5. Huevo de pascua. Al pasar el ratón por encima del logo del gato en verisón tablet, nos gustaría que se reporuduciera el sonido "meow!"; el audio está en la carpeta audio.
