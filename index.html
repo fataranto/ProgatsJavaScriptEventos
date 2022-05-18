@@ -36,7 +36,7 @@
         <article class="members--card card__patricia card__contact hide">
             <h3>&#9743; <a href="tel:666111222">66611222</a></h3>
         </article>
-        <article class="members--card card__veronica card__role">
+        <article ondblclick="mostrarDatosContacto('veronica')" class="members--card card__veronica card__role">
             <h3 class="members--name">Verónica</h3>
             <p class="members--role">Voluntaria</p>
         </article>
@@ -44,7 +44,7 @@
             <h3>&#9743; <a href="tel:666111222">666333444</a></h3>
 
         </article>
-        <article class="members--card card__edurne card__role">
+        <article ondblclick="mostrarDatosContacto('edurne')" class="members--card card__edurne card__role">
             <h3 class="members--name">Edurne</h3>
             <p class="members--role">Voluntaria</p>
         </article>
@@ -109,16 +109,16 @@
             }
         }
 
-        // trabajadora  = 'patricia'
+       
         function mostrarDatosContacto(trabajadora) {
             console.log("Quiero mostrar los datos de contacto para la " + trabajadora);
 
-            if (trabajadora == 'patricia') {
-                // Ocultar el 'article' de patricia, estilo en línea
-                document.querySelector(".card__patricia.card__role").style.display = "none";
-                // mostrar el 'article' con los datos de contacto de patricia, quitándole la clase CSS 'hide'
-                document.querySelector(".card__patricia.card__contact").classList.remove("hide");
-            }
+            
+                // Ocultar el 'article' de (trabajadora), estilo en línea
+                document.querySelector(`.card__${trabajadora}.card__role`).style.display = "none";
+                // mostrar el 'article' con los datos de contacto de (trabajadora), quitándole la clase CSS 'hide'
+                document.querySelector(`.card__${trabajadora}.card__contact`).classList.remove("hide");
+            
         }
 
     </script>
