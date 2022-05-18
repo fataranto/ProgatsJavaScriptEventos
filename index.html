@@ -68,7 +68,7 @@
         <!-- Ejercicio 1: Implementa el botón de que un gato ha sido dado en adopción. BONUS: No debería ser posible que cuando queden 0 gatitos, se pueda hacer click en el botón. Podeis hacerlo desaparecer, deshabilitarlo, etc. -->
         <!-- Ejercicio 2: Implementa la funcionalidad dblclick para  TODAS las tarjetas de las chicas. BONUS: Podrías llegar a hacerlo sin utilizar condicionales en la función mostrarDatosContacto -->
         <!-- Ejercicio BONUS: Queremos que cuando el usuario pase el ratón por encima del logo del gato (superior izquierda), se peude ver en la versión 'tablet'; el gato maulle. Par que maulle el gato, tenéis que reproducir con JavaScript el sonido ubicado en la carepta audio/meowing-cat-sound.mp3 -->
-        <button>Un gatito ha sido adoptado</button>
+        <button id = "adoptado" onclick="gatitoAdoptado()">Un gatito ha sido adoptado</button>
     </footer>
 
     <!-- Progts nos ha pedido un control para poder añadir gatitos a adoptar o poder informar de que uno de ellos ya ha sido adoptado-->
@@ -92,6 +92,21 @@
             gatosAdopcion++;
             // actualizar el <span> donde está el número de gatos a adoptar
             document.querySelector("#num-gatos").textContent = gatosAdopcion;
+            if (gatosAdopcion == 1){
+                    let button = document.querySelector("#adoptado");
+                    button.disabled = false;
+                } 
+        }
+
+        function gatitoAdoptado() {
+            if (gatosAdopcion > 0){
+                gatosAdopcion--;
+                document.querySelector("#num-gatos").textContent = gatosAdopcion;
+                if (gatosAdopcion == 0){
+                    let button = document.querySelector("#adoptado");
+                    button.disabled = true;
+                } 
+            }
         }
 
         // trabajadora  = 'patricia'
