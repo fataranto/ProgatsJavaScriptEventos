@@ -34,14 +34,14 @@
             <h3 class="members--name">Patricia</h3>
             <p class="members--role">Fundadora</p>
         </article>
-        <article class="members--card card__patricia card__contact hide">
+        <article ondblclick="ocultarDatosContacto('patricia')" class="members--card card__patricia card__contact hide">
             <h3>&#9743; <a href="tel:666111222">66611222</a></h3>
         </article>
         <article ondblclick="mostrarDatosContacto('veronica')" class="members--card card__veronica card__role">
             <h3 class="members--name">Verónica</h3>
             <p class="members--role">Voluntaria</p>
         </article>
-        <article class="members--card card__veronica card__contact hide">
+        <article ondblclick="ocultarDatosContacto('veronica')" class="members--card card__veronica card__contact hide">
             <h3>&#9743; <a href="tel:666111222">666333444</a></h3>
 
         </article>
@@ -49,7 +49,7 @@
             <h3 class="members--name">Edurne</h3>
             <p class="members--role">Voluntaria</p>
         </article>
-        <article class="members--card card__edurne card__contact hide">
+        <article ondblclick="ocultarDatosContacto('edurne')" class="members--card card__edurne card__contact hide">
             <h3>&#9743; <a href="tel:666111222">666555666</a></h3>
         </article>
     </section>
@@ -119,6 +119,18 @@
             document.querySelector(`.card__${trabajadora}.card__role`).style.display = "none";
             // mostrar el 'article' con los datos de contacto de (trabajadora), quitándole la clase CSS 'hide'
             document.querySelector(`.card__${trabajadora}.card__contact`).classList.remove("hide");
+
+        }
+
+
+        function ocultarDatosContacto(trabajadora) {
+            console.log("Quiero ocultar los datos de contacto para la " + trabajadora);
+
+
+            // Ocultar el 'article' de (trabajadora), estilo en línea
+            document.querySelector(`.card__${trabajadora}.card__role`).style.display = "flex";
+            // mostrar el 'article' con los datos de contacto de (trabajadora), quitándole la clase CSS 'hide'
+            document.querySelector(`.card__${trabajadora}.card__contact`).classList.add("hide");
 
         }
 
