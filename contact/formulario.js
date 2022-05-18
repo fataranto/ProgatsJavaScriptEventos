@@ -7,10 +7,25 @@ function enviarFormulario(e) {
     // Modificar a partir de aquí
     // Porgats quiere recibir un correo con el nombre y el asunto 
 
-    let nombre = document.querySelector("#fname").value;
+    let nombre = document.querySelector("#fname").value + " " +document.querySelector("#lname").value;
     let asunto = document.querySelector("#subject").value;
+    let pais = document.querySelector("#country").value
+
 
     // Simular que enviamos un correo usando el console.log
-    console.log(`Hola soy ${nombre} y estoy preocupado porque ${asunto}`);
+    /* console.log(`Hola soy ${nombre} y estoy preocupado porque ${asunto}`); */
+
+    let mensaje = 
+    `De: ${nombre}
+    Asunto: Nuevo mensaje del servicio de consultas de Progats procedente de ${pais}.
+
+    Mensaje:
+    Hola, soy ${nombre} y estoy preocupado porque ${asunto}`;
+    
+    console.log(mensaje);
+
+    document.querySelector("form").style.display = "none";
+    document.querySelector("#mensaje-gracias").style.display = "block";
+
 
 }
